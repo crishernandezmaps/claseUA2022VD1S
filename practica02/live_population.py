@@ -12,7 +12,6 @@ import termios, fcntl, sys, os
 
 
 if __name__=='__main__':
-
     fd = sys.stdin.fileno()
     oldterm = termios.tcgetattr(fd)
     newattr = termios.tcgetattr(fd)
@@ -23,7 +22,7 @@ if __name__=='__main__':
 
     print('Loading...', end='\r')
     option = webdriver.ChromeOptions()
-    # option.add_argument('headless')
+    option.add_argument('headless')
     driver = webdriver.Chrome('/Volumes/second/academia/UA/20221S/claseUA2022VD1S/practica02/chromedriver', options=option)
 
     url='https://www.worldometers.info/world-population/'
@@ -33,6 +32,8 @@ if __name__=='__main__':
 
     try:
         element = driver.find_element_by_class_name(class_name)
+        # element = driver.find_element_by_xpath('/html/body/div[3]/div[2]/div[2]/div/div[3]/div[1]/div/div[3]/div[2]/span')
+        print(element)
     except:
         print('ElementNotFound: Inspect {} weppage and find the element class-name in which population text is displaying and update the class_name variable'.format(url))
         termios.tcsetattr(fd, termios.TCSAFLUSH, oldterm)
