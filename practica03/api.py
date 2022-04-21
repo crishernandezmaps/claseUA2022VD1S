@@ -125,4 +125,4 @@ def check(d, s, n):
 p1 = check('nunoa', 'montenegro', '1075')
 print(p1)
 
-p2 = check('santiago', 'Catedral', '2227')
+# p2 = check('santiago', 'Catedral', '2227')
